@@ -39,13 +39,13 @@ class Trainset:
                 s_jsons.append(os.path.join(json_dir, s))
                 
         
-        with open(mix_json, 'r') as f:
+        with open(mix_json, 'rb') as f:
             print(f)
             mix_infos = json.load(f)
             
         for s_json in s_jsons:
             print(s_json)
-            with open(s_json, 'r') as f:
+            with open(s_json, 'rb') as f:
                 s_infos.append(json.load(f))
         print("printing mix_infos[964]")
         print(sort(mix_infos)[964])
