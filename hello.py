@@ -2,6 +2,7 @@ import json
 
 # Specify the path to your JSON file
 file_path = r's1.json'
+print("hello world")
 
 try:
     # Open the file with UTF-8 encoding
