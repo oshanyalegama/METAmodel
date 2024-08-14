@@ -28,6 +28,7 @@ def find_audio_files(path, exts=[".wav"], progress=True):
             file = Path(root) / file
             if file.suffix.lower() in exts:
                 audio_files.append(str(os.path.abspath(file)))
+    print("number of audio files is", len(audio_files))
     meta = []
     if progress:
         audio_files = tqdm.tqdm(audio_files,  ncols=80)
