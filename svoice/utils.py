@@ -124,7 +124,10 @@ class LogProgress:
                 self._log()
 
     def _log(self):
-        self._speed = (1 + self._index) / (time.time() - self._begin)
+        if (((time.time() == self._begin))):
+            self._speed = 0
+        else:    
+            self._speed = (1 + self._index) / (time.time() - self._begin)
         infos = " | ".join(f"{k.capitalize()} {v}" for k,
                            v in self._infos.items())
         if self._speed < 1e-4:

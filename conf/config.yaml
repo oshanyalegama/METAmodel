@@ -23,7 +23,7 @@ checkpoint: True
 continue_from: '' # Only pass the name of the exp, like `exp_dset=wham`
                   # this arg is ignored for the naming of the exp!
 continue_best: false
-restart: False # Ignore existing checkpoints
+restart: True # Ignore existing checkpoints
 checkpoint_file: checkpoint.th
 history_file: history.json
 samples_dir: samples
@@ -44,8 +44,8 @@ beta2: 0.999
 stft_loss: False
 stft_sc_factor: .5
 stft_mag_factor: .5
-epochs: 100
-batch_size: 4
+epochs: 35
+batch_size: 1
 max_norm: 5
 # learning rate scheduling
 lr_sched: step # can be either step or plateau

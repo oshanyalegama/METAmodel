@@ -30,18 +30,25 @@ def sort(infos): return sorted(
 class Trainset:
     def __init__(self, json_dir, sample_rate=16000, segment=4.0, stride=1.0, pad=True):
         mix_json = os.path.join(json_dir, 'mix.json')
+        
         s_jsons = list()
         s_infos = list()
         sets_re = re.compile(r's[0-9].json')
-        for s in os.listdir(json_dir):
+        for s in os.listdir(json_dir):            
             if sets_re.search(s):
                 s_jsons.append(os.path.join(json_dir, s))
-
+                
+        
         with open(mix_json, 'r') as f:
+            print(f)
             mix_infos = json.load(f)
+            
         for s_json in s_jsons:
+            print(s_json)
             with open(s_json, 'r') as f:
                 s_infos.append(json.load(f))
+        print("printing mix_infos[964]")
+        print(sort(mix_infos)[964])
 
         length = int(sample_rate * segment)
         stride = int(sample_rate * stride)
@@ -53,6 +60,13 @@ class Trainset:
         for s_info in s_infos:
             self.sets.append(Audioset(sort(s_info), **kw))
 
+        for s in self.sets:
+            print(len(s))
+        print("printing info")
+        print((s_info[0]))
+        print(len(mix_infos))
+        print(self.sets[0][0])
+            
         # verify all sets has the same size
         for s in self.sets:
             assert len(s) == len(self.mix_set)
@@ -73,6 +87,7 @@ class Validset:
 
     def __init__(self, json_dir):
         mix_json = os.path.join(json_dir, 'mix.json')
+        print(mix_json)
         s_jsons = list()
         s_infos = list()
         sets_re = re.compile(r's[0-9].json')

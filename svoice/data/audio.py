@@ -11,6 +11,7 @@ import math
 import os
 import tqdm
 import sys
+import random
 
 import torchaudio
 import soundfile as sf
@@ -48,6 +49,7 @@ class Audioset:
         self.length = length
         self.stride = stride or length
         self.augment = augment
+        i=0
         for file, file_length in self.files:
             if length is None:
                 examples = 1
@@ -56,9 +58,23 @@ class Audioset:
             elif pad:
                 examples = int(
                     math.ceil((file_length - self.length) / self.stride) + 1)
+            
             else:
                 examples = (file_length - self.length) // self.stride + 1
+            
             self.num_examples.append(examples)
+            if i == 964:
+                print("Hi there",file, examples)
+            i+=1
+        unique_examples = set(self.num_examples)
+        # # Generate a random number for the filename
+        # filename = f"{random.randint(1000, 9999)}.txt"
+
+        # # Write the list to the text file
+        # with open(filename, 'w') as file:
+        #     for item in self.num_examples:
+        #         file.write(f"{item}\n")
+        # print(filename)
 
     def __len__(self):
         return sum(self.num_examples)
