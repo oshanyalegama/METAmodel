@@ -88,7 +88,7 @@ class Audioset:
             if index >= examples:
                 index -= examples
                 continue
-            num_frames = 0
+            num_frames = -1
             offset = 0
             if self.length is not None:
                 print(file,"length is none")
