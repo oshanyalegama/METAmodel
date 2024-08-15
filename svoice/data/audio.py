@@ -37,7 +37,7 @@ def find_audio_files(path, exts=[".wav"], progress=True):
         # siginfo, _ = torchaudio.info(file)
         siginfo = torchaudio.info(file)
         # length = siginfo.length // siginfo.channels
-        length = siginfo.num_frames // siginfo.channels
+        length = siginfo.num_frames // siginfo.num_channels
         meta.append((file, length))
     meta.sort()
     return meta
