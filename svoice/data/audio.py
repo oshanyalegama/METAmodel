@@ -91,7 +91,7 @@ class Audioset:
             num_frames = 0
             offset = 0
             if self.length is not None:
-                print(file,"length is none")
+                
                 offset = self.stride * index
                 num_frames = self.length
             #  out = th.Tensor(sf.read(str(file), start=offset, frames=num_frames)[0]).unsqueeze(0)
