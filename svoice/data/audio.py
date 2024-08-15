@@ -95,7 +95,7 @@ class Audioset:
                 offset = self.stride * index
                 num_frames = self.length
             #  out = th.Tensor(sf.read(str(file), start=offset, frames=num_frames)[0]).unsqueeze(0)
-            assert num_frames == -1 or num_frames > 0, f"Invalid num_frames: {num_frames}. It must be -1 or greater than 0."
+            # assert num_frames == -1 or num_frames > 0, f"Invalid num_frames: {num_frames}. It must be -1 or greater than 0."
             # out = torchaudio.load(str(file), frame_offset=offset,
             #                       num_frames=num_frames)[0]
             out = torchaudio.load(str(file), frame_offset=offset)[0]
