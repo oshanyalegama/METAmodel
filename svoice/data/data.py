@@ -48,7 +48,7 @@ class Trainset:
             with open(s_json, 'rb') as f:
                 s_infos.append(json.load(f))
         print("printing mix_infos[964]")
-        print(sort(mix_infos)[964])
+        # print(sort(mix_infos)[964])
 
         length = int(sample_rate * segment)
         stride = int(sample_rate * stride)
