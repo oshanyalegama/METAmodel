@@ -65,8 +65,8 @@ class Audioset:
                 examples = (file_length - self.length) // self.stride + 1
             
             self.num_examples.append(examples)
-            if i == 964:
-                print("Hi there",file, examples)
+            # if i == 964:
+            #     print("Hi there",file, examples)
             i+=1
         unique_examples = set(self.num_examples)
         # # Generate a random number for the filename
